@@ -38,6 +38,7 @@ const IndexPage = ({ monthlyDownloads }: { monthlyDownloads: number }) => (
       title={home.title}
       description={home.description}
       jsonLd={[softwareSourceCodeSchema]}
+      markdownUrl="/index.md"
     />
     <Home monthlyDownloads={monthlyDownloads} />
   </>

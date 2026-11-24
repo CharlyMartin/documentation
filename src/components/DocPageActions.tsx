@@ -24,7 +24,7 @@ const ExternalIcon = () => (
   </svg>
 )
 
-// Markdown copies are generated at build time by scripts/generate-markdown.mjs.
+// Page Markdown is served by the API routes under `src/pages/api/md`.
 export default function DocPageActions({ slug }: { slug: string }) {
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle")
   const markdownPath = `${slug}.md`

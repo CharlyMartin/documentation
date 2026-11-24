@@ -63,6 +63,26 @@ export async function getAllDocs() {
   ]
 }
 
+/** The absolute URL of a doc's page Markdown. */
+export function getMarkdownUrl(doc: Doc) {
+  switch (doc.source) {
+    case "docs":
+      return docsTree.getMarkdownUrl(doc.qinoSlug)
+    case "advanced-usage":
+      return advancedUsageCollection.getMarkdownUrl(doc.qinoSlug)
+    case "integrations":
+      return integrationCollection.getMarkdownUrl(doc.qinoSlug)
+    case "page": {
+      // An item's slug is its file's basename.
+      const page = Object.values(pages).find((item) =>
+        item.getMarkdownUrl().endsWith(`/${doc.qinoSlug}.md`)
+      )
+      if (!page) throw new Error(`No item page for ${doc.slug}`)
+      return page.getMarkdownUrl()
+    }
+  }
+}
+
 /** Ancestors of a doc, excluding the doc itself. */
 export async function getBreadcrumbs(doc: Doc) {
   switch (doc.source) {

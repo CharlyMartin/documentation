@@ -14,7 +14,13 @@ import { SelectNav } from "@/components/selectNav"
 import Link from "next/link"
 import styles from "@/components/DocsPage.module.css"
 import * as sidebar from "@/components/Menu/MenuLinks"
-import { Breadcrumb, Doc, getAllDocs, getBreadcrumbs } from "@/lib/docs"
+import {
+  Breadcrumb,
+  Doc,
+  getAllDocs,
+  getBreadcrumbs,
+  getMarkdownUrl,
+} from "@/lib/docs"
 import { compileMdx } from "@/lib/mdx"
 import type { Sidebar } from "../../qino/schemas"
 import formState from "@/components/codeExamples/formState"
@@ -126,6 +132,7 @@ export const getStaticProps = async ({
         description: doc.description,
         metaDescription: doc.metaDescription ?? doc.description,
         slug: doc.slug,
+        markdownUrl: getMarkdownUrl(doc),
         code: await compileMdx(doc.markdown),
         pages: sidebar[doc.sidebar],
         sidebarTitle: SIDEBAR_TITLES[doc.sidebar],
@@ -152,6 +159,7 @@ export default function Page({
         description={doc.metaDescription}
         jsonLd={doc.jsonLd}
         type="article"
+        markdownUrl={doc.markdownUrl}
       />
 
       <div className={styles.layout}>

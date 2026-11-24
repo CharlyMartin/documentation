@@ -34,12 +34,15 @@ function SEO({
   jsonLd = [],
   noindex = false,
   type = "website",
+  markdownUrl,
 }: {
   title: string
   description?: string
   jsonLd?: object[]
   noindex?: boolean
   type?: "website" | "article"
+  /** The page's Markdown for agents, as an absolute or root-relative URL. */
+  markdownUrl?: string
 }) {
   const router = useRouter()
   // Titles that already carry the brand (e.g. the homepage) skip the suffix.
@@ -56,6 +59,9 @@ function SEO({
     <Head>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} key="description" />
+      {markdownUrl && (
+        <link rel="alternate" type="text/markdown" href={markdownUrl} />
+      )}
       {noindex ? (
         <meta name="robots" content="noindex" />
       ) : (

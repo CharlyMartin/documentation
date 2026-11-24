@@ -5,3 +5,4 @@ qino/_generated/
 next-env.d.ts
 public/**/*.md
 public/llms*.txt
+public/**/llms.txt
