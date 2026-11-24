@@ -13,6 +13,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE_NAME,
+  description:
+    "React Hook Form is an open-source library of performant, flexible and extensible forms for React with easy-to-use validation.",
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo/react-hook-form-logo.png`,
   sameAs: [
