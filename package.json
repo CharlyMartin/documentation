@@ -8,7 +8,7 @@
     "@hookform/devtools": "4.4.0",
     "@mdx-js/mdx": "3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@qino/cms": "0.17.0",
+    "@qino/cms": "0.25.0",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "little-state-machine": "^4.8.1",
