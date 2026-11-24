@@ -12,7 +12,7 @@
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "little-state-machine": "^4.8.1",
-    "next": "16.4.2",
+    "next": "16.4.5",
     "next-themes": "^0.2.1",
     "prism-react-renderer": "^2.4.1",
     "prismjs": "^1.30.0",
